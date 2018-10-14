@@ -85,7 +85,12 @@ def main():
     print('####################3###################\n\n\n')
     getTableHead(myArticle)
     print('####################3###################')
-    print(myArticle.listTableWrap[0].listOfTableHead)
+    for row in myArticle.listTableWrap:
+        print(row.tag)
+
+    for alternative in myArticle.listTableAlternatives:
+        print(alternative)
+
     print('####################3###################\n\n\n')
 
 if __name__ == '__main__':

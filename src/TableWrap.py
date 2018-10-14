@@ -29,6 +29,5 @@ class TableWrap:
     def setTable(self, table):
         self.listTable.append(table)
 
-
     def setListTableHearder(self, listHeaderName):
         self.listOfTableHead.append(listHeaderName)
