@@ -7,5 +7,11 @@
 """
 
 class Tr:
-    def __init__(self, listTd):
+    listOTd = []
+    def __init__(self, listTd=None):
         self.listOfTd = listTd
+
+
+    # add a td to the list of tds
+    def addTdToListOfTd(self, td):
+        pass
