@@ -5,8 +5,11 @@ are on XML format.
 
 ## File structure 
 - src 
-Here you will find all source code of the app
-
+Here you will find all source code of the app. 
+In this folder we have two files:
+    - app.py which contain the maim of our app
+    - Article.py which is a class that is used for accessing information 
+from the XML file 
 - data 
 Here you have to put you XML article on which the tables information
 will be extracted

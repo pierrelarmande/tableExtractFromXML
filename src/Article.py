@@ -74,6 +74,15 @@ class Article:
         return listOfThead
 
 
+    def getArticleListOfTableTbody(self, tagName='tbody'):
+        listOfThead = []
+        listOfTable = self.getArticleListOfTable()
+        for table in listOfTable:
+            listOfThead.append(self.searchTagInArticle(tagName,table[0]))
+        return listOfThead
+
+
+
     def getArticleListOfTableTr(self, rootTag, tagName='tr'):
         return  self.searchTagInArticle(tagName, rootTag=rootTag[0])
 
