@@ -41,8 +41,11 @@ def main():
         for tr in myArticle.getArticleListOfTableTr(tag):
             nbTableTr = nbTableTr + 1
             print("\t\t++++++++++++ tr :",  nbTableTr)
-            for td in myArticle.getArticlelistOTableTd(tr):
-                myArticle.printTdText(td)
+            for it in tr.iter():
+                print(it.text)
+            #for td in myArticle.getArticlelistOTableTd(tr):
+               # print(tag.tostring(td))
+                #myArticle.printTdText(td)
 
 
 

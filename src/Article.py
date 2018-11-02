@@ -82,7 +82,6 @@ class Article:
         return listOfThead
 
 
-
     def getArticleListOfTableTr(self, rootTag, tagName='tr'):
         return  self.searchTagInArticle(tagName, rootTag=rootTag[0])
 
