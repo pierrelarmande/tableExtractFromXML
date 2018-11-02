@@ -93,3 +93,7 @@ class Article:
         children = rootTag.getchildren()
         if len(children) == 0:
             print(rootTag.text)
+
+    def numberTableTagInArticle(self):
+        numberOfTable = self.searchTagInArticle('table', rootTag=None)
+        return len(numberOfTable)

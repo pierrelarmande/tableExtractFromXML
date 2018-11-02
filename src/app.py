@@ -1,3 +1,5 @@
+from typing import List, Any
+
 from src.Article import Article
 
 
@@ -7,45 +9,68 @@ def main():
     file3 = '../data/data.xml'
 
     myArticle = Article(file2)
-    print('#################### Get article title ###################')
+    print('\n\n########################### Get article title ##########################')
     print(myArticle.title)
-
-    print('#################### Search for tag in article ###################')
-    for tag in myArticle.searchTagInArticle('table', rootTag=None):
-        print(tag.tag)
-
-    print('#################### Search for tag  Alternatives in article ###################')
-    for tag in myArticle.getArticleListOfTableWrapAlternatives():
-        print(tag)
+    print('########################################################################\n\n')
 
     print('#################### Search for table tag in article ###################')
-    for tag in myArticle.getArticleListOfTable():
-        print(tag)
+    for tag in myArticle.searchTagInArticle('table', rootTag=None):
+        print(tag.tag)
+    print('########################################################################\n')
 
-    print('#################### Search for table thead tag in article ###################')
+    #print('#################### Search for tag  Alternatives in article ###################')
+    #for tag in myArticle.getArticleListOfTableWrapAlternatives():
+        #print(tag)
+
+    #print('######################## Search for table tag in article #######################')
+    #for tag in myArticle.getArticleListOfTable():
+        #print(tag)
+    #print('################################################################################\n')
+
+    print('##################### Search for table thead tag in article ####################')
     nbTableHead = 0
-    for tag in myArticle.getArticleListOfTableThead():
+    listThead = []
+    for tagHead in myArticle.getArticleListOfTableThead():
         nbTableHead = nbTableHead+ 1
         print("++++++++++++ thead :", nbTableHead)
-        for tr in myArticle.getArticleListOfTableTr(tag):
-            for td in myArticle.getArticlelistOTableTd(tr):
-                myArticle.printTdText(td)
+        listTr = []
+        for tr in myArticle.getArticleListOfTableTr(tagHead):
+            listTd = []
+            for it in tr.iter():
+                if it.tag == "td":
+                    listTd.append(str(it.text).strip())
+                elif it.tag != "tr":
+                    tdTag = listTd.pop()
+                    tdTag = tdTag + '#' + str(it.text).strip()
+                    listTd.append(tdTag)
+            listTr.append(listTd)
+        listThead.append(listTr)
+
+    for thead in listThead:
+        print("\n tr of head : "+ str(len(thead)))
+        print(thead)
+
 
     print('#################### Search for table tbody tag in article ###################')
-    nbTableBody = 0
 
-    for tag in myArticle.getArticleListOfTableTbody():
-        nbTableBody = nbTableHead + 1
-        print("\t++++++++++++ tbody :", nbTableBody)
-        nbTableTr = 0
-        for tr in myArticle.getArticleListOfTableTr(tag):
-            nbTableTr = nbTableTr + 1
-            print("\t\t++++++++++++ tr :",  nbTableTr)
+    listTbody = []
+    for tagTbody in myArticle.getArticleListOfTableTbody():
+        listTr = []
+        for tr in myArticle.getArticleListOfTableTr(tagTbody):
+            listTd = []
             for it in tr.iter():
-                print(it.text)
-            #for td in myArticle.getArticlelistOTableTd(tr):
-               # print(tag.tostring(td))
-                #myArticle.printTdText(td)
+                if it.tag == "td":
+                    listTd.append(str(it.text).strip())
+                elif it.tag != "tr":
+                    tdTag = listTd.pop()
+                    tdTag = tdTag + '#' + str(it.text).strip()
+                    listTd.append(tdTag)
+            listTr.append(listTd)
+        listTbody.append(listTr)
+    for tbody in listTbody:
+        print("\n tr of body : "+str(len(tbody)))
+        print(tbody)
+
 
 
 
