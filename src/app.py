@@ -8,7 +8,7 @@ def main():
     file1 = '../data/PMC3968010.xml'
     file3 = '../data/data.xml'
 
-    myArticle = Article(file2)
+    myArticle = Article(file1)
     print('\n\n########################### Get article title ##########################')
     print(myArticle.title)
     print('########################################################################\n\n')
@@ -31,7 +31,7 @@ def main():
     nbTableHead = 0
     listThead = []
     for tagHead in myArticle.getArticleListOfTableThead():
-        nbTableHead = nbTableHead+ 1
+        nbTableHead = nbTableHead + 1
         print("++++++++++++ thead :", nbTableHead)
         listTr = []
         for tr in myArticle.getArticleListOfTableTr(tagHead):
@@ -51,7 +51,7 @@ def main():
         print(thead)
 
 
-    print('#################### Search for table tbody tag in article ###################')
+    print('\n\n#################### Search for table tbody tag in article ###################\n\n\n\n\n')
 
     listTbody = []
     for tagTbody in myArticle.getArticleListOfTableTbody():
@@ -67,12 +67,24 @@ def main():
                     listTd.append(tdTag)
             listTr.append(listTd)
         listTbody.append(listTr)
+
+
     for tbody in listTbody:
         print("\n tr of body : "+str(len(tbody)))
         print(tbody)
+    print("\n\n\n\n\n\n\n")
 
 
-
+    for i in range(len(listTbody)):
+        print("\n\n")
+        tbody = listTbody[i]
+        for j in range(len(tbody)):
+            tr = tbody[j]
+            for k in range(len(tr)):
+                thead = listThead[i]
+                lastTr = thead[-1]
+                print(lastTr[k]+"@"+tr[k])
+        print("\n\n")
 
 if __name__ == '__main__':
     main()
