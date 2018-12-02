@@ -12,7 +12,7 @@ def main():
     file5 = '../data/PMC5137041.xml'
     file6 = '../data/PMC6115326.xml'
 
-    myArticle = Article(file2)
+    myArticle = Article(file5)
     print('\n\n########################### Get article title ##########################')
     print(myArticle.title)
     print('########################################################################\n\n')
@@ -90,6 +90,18 @@ def main():
 
             listThead.append(listTr)
             myTable.setTableHead(listThead)
+            dataTbody = []
+            for tbody in myArticle.searchTagInArticle('tbody', tables[0]):
+                trData = []
+                for tr in myArticle.searchTagInArticle('tr', tbody):
+                    tdData = []
+                    for td in tr.getchildren():
+                        listTdData = []
+                        myArticle.getTextOfAGivenTag(td, listTdData)
+                        tdData.append("#".join(listTdData))
+                    trData.append(tdData)
+                dataTbody.append(trData)
+            myTable.setTableBody(dataTbody)
         listOfTables.append(myTable)
 
 
@@ -98,7 +110,11 @@ def main():
     for tab in listOfTables:
         print(tab.caption)
         print("\n\n")
-        print(tab.Thead)
+        for tr in tab.tableHead:
+            print(tr)
+        print("\n\n")
+        for tr in tab.tableBody:
+            print(tr)
         print("#################################\n\n\n\n")
 
 

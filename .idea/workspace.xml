@@ -13,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/tableExtractFromXml$app.coverage" NAME="app Coverage Results" MODIFIED="1543752199930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/tableExtractFromXml$app.coverage" NAME="app Coverage Results" MODIFIED="1543756679453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -31,10 +31,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="75">
               <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -43,11 +43,27 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="PMC5137041.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/PMC5137041.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-810" />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Article.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Article.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
+            <state relative-caret-position="156">
               <caret line="49" column="51" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PMC3077385.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/PMC3077385.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-408">
+              <caret line="72" column="127" lean-forward="true" selection-start-line="72" selection-start-column="102" selection-end-line="72" selection-end-column="127" />
             </state>
           </provider>
         </entry>
@@ -55,8 +71,8 @@
       <file leaf-file-name="ArticleTable.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ArticleTable.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            <state relative-caret-position="105">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -73,8 +89,8 @@
       <file leaf-file-name="PMC2515340.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/PMC2515340.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="527" column="127" lean-forward="true" selection-start-line="527" selection-start-column="127" selection-end-line="527" selection-end-column="127" />
+            <state relative-caret-position="30">
+              <caret line="338" column="80" selection-start-line="338" selection-start-column="80" selection-end-line="338" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -159,11 +175,11 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/data/PMC2515340.xml" />
         <option value="$PROJECT_DIR$/data/PMC3968010.xml" />
-        <option value="$PROJECT_DIR$/data/PMC3077385.xml" />
         <option value="$PROJECT_DIR$/data/PMC6115326.xml" />
         <option value="$PROJECT_DIR$/data/PMC2474671.xml" />
         <option value="$PROJECT_DIR$/src/Article.py" />
         <option value="$PROJECT_DIR$/src/ArticleTable.py" />
+        <option value="$PROJECT_DIR$/data/PMC3077385.xml" />
         <option value="$PROJECT_DIR$/src/app.py" />
       </list>
     </option>
@@ -288,14 +304,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="8" weight="0.32864675" />
-      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="TODO" order="9" weight="0.32864675" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="2" weight="0.32864675" />
       <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37434095" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.5377856" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32715008" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17298938" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
@@ -303,13 +318,13 @@
       <window_info anchor="right" id="SciView" order="3" weight="0.32928678" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
@@ -343,13 +358,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/PMC2515340.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12930">
-          <caret line="862" column="32" selection-start-line="505" selection-start-column="24" selection-end-line="862" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/PMC3968010.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6000">
@@ -688,13 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/PMC3077385.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="84" column="167" selection-start-line="84" selection-start-column="167" selection-end-line="84" selection-end-column="167" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/PMC6115326.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -709,20 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="185" column="10" lean-forward="true" selection-start-line="185" selection-start-column="10" selection-end-line="185" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ArticleTable.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Article.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="49" column="51" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -753,21 +740,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ArticleTable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/PMC2515340.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="527" column="127" lean-forward="true" selection-start-line="527" selection-start-column="127" selection-end-line="527" selection-end-column="127" />
+        <state relative-caret-position="30">
+          <caret line="338" column="80" selection-start-line="338" selection-start-column="80" selection-end-line="338" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Article.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="49" column="51" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/PMC3077385.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="72" column="127" lean-forward="true" selection-start-line="72" selection-start-column="102" selection-end-line="72" selection-end-column="127" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="75">
           <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/PMC5137041.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-810" />
       </provider>
     </entry>
   </component>

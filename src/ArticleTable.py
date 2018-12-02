@@ -7,4 +7,7 @@ class ArticleTable:
         self.caption = caption
 
     def setTableHead(self,listThead):
-        self.Thead = listThead
+        self.tableHead = listThead
+
+    def setTableBody(self, listTbody):
+        self.tableBody = listTbody
