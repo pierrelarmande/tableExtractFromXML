@@ -47,6 +47,15 @@ class Article:
         return listTag
 
 
+    def getTextOfAGivenTag(self, tagObject, listOfContain):
+        if len(str(tagObject.text).strip()) > 0:
+            listOfContain.append(str(tagObject.text).strip())
+        if len(tagObject.getchildren()) > 0:
+            for subTag in tagObject.getchildren():
+                print(subTag.tag)
+                self.getTextOfAGivenTag(subTag, listOfContain)
+
+
     def getArticleListOfTableWrap(self, tableWrap='table-wrap'):
         listOfTableWrap = self.searchTagInArticle(tableWrap, rootTag=None)
         return listOfTableWrap
@@ -68,10 +77,14 @@ class Article:
 
     def getArticleListOfTableThead(self, tagName='thead'):
         listOfThead = []
+        #listOfThead = self.searchTagInArticle('thead', rootTag=None)
+
         listOfTable = self.getArticleListOfTable()
         for table in listOfTable:
             listOfThead.append(self.searchTagInArticle(tagName,table[0]))
+
         return listOfThead
+
 
 
     def getArticleListOfTableTbody(self, tagName='tbody'):

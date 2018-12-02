@@ -1,6 +1,7 @@
 from typing import List, Any
 
 from src.Article import Article
+from src.ArticleTable import ArticleTable
 
 
 def main():
@@ -11,14 +12,42 @@ def main():
     file5 = '../data/PMC5137041.xml'
     file6 = '../data/PMC6115326.xml'
 
-    myArticle = Article(file6)
+    myArticle = Article(file3)
     print('\n\n########################### Get article title ##########################')
     print(myArticle.title)
     print('########################################################################\n\n')
 
+
     print('#################### Search for table tag in article ###################')
-    for tag in myArticle.searchTagInArticle('table', rootTag=None):
+    for tag in myArticle.searchTagInArticle('table-wrap', rootTag=None):
         print(tag.tag)
+        myTable = ArticleTable()
+        captions = myArticle.searchTagInArticle('caption', tag)
+        theCaption = []
+        myArticle.getTextOfAGivenTag(captions[0], theCaption)
+        print(theCaption)
+    print('########################################################################\n')
+
+
+
+    '''
+    for tag in myArticle.searchTagInArticle('caption', rootTag=None):
+        print(tag.tag)
+        #myArticle.getTextOfAGivenTag(tag)
+
+     
+        if elt.tag == "caption" and len(elt.getchildren()) > 0:
+            listOfCaption = []
+            for subelt in elt.getchildren():
+                print(subelt.text)
+        elif elt.tag == "caption" and len(elt.getchildren()) == 0:
+            print(elt.text)
+        '''
+
+    exit(0)
+    print('#################### Search for table tag in article ###################')
+    for tag in myArticle.searchTagInArticle('thead', rootTag=None):
+        print(tag)
     print('########################################################################\n')
 
     #print('#################### Search for tag  Alternatives in article ###################')
