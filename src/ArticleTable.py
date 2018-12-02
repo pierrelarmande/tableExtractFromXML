@@ -5,3 +5,6 @@ class ArticleTable:
 
     def setTableCaption(self, caption=""):
         self.caption = caption
+
+    def setTableHead(self,listThead):
+        self.Thead = listThead

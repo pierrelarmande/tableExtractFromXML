@@ -12,37 +12,96 @@ def main():
     file5 = '../data/PMC5137041.xml'
     file6 = '../data/PMC6115326.xml'
 
-    myArticle = Article(file3)
+    myArticle = Article(file2)
     print('\n\n########################### Get article title ##########################')
     print(myArticle.title)
     print('########################################################################\n\n')
 
-
+    listOfTables = []
     print('#################### Search for table tag in article ###################')
     for tag in myArticle.searchTagInArticle('table-wrap', rootTag=None):
         print(tag.tag)
+
         myTable = ArticleTable()
         captions = myArticle.searchTagInArticle('caption', tag)
+        print(len(captions))
         theCaption = []
         myArticle.getTextOfAGivenTag(captions[0], theCaption)
-        print(theCaption)
-    print('########################################################################\n')
+        myTable.setTableCaption(theCaption)
+
+        tables = myArticle.searchTagInArticle('table', tag)
+        print(len(tables))
+        nbTableHead = 0
+        listThead = []
+        for tagHead in myArticle.searchTagInArticle('thead', tables[0]):
+            nbTableHead = nbTableHead + 1
+            print("++++++++++++ thead :", nbTableHead)
+            print("========= tr : " + str(len(tagHead)))
+            listTr = []
+            countTr = 0
+            for tr in myArticle.searchTagInArticle('tr', tagHead):
+                listTd = []
+                if countTr >= 1:
+                    copyTd = []
+                    for it in tr.iter():
+                        if it.tag == "td":
+                            listTdData = []
+                            myArticle.getTextOfAGivenTag(it, listTdData)
+                            td = {
+                                'colspan': str(it.get('colspan')),
+                                'rowspan': str(it.get('rowspan')),
+                                'data':  '#'.join(listTdData)
+                            }
+                            copyTd.append(td)
+
+                    prevTr = listTr[countTr - 1]
+                    counttd = 0
+                    for countTd in range(len(prevTr)):
+                        if prevTr[countTd]['colspan'] != 'None' and int(prevTr[countTd]['colspan']) >= 2:
+                            for i in range(countTd, countTd + int(prevTr[countTd]['colspan'])):
+                                copyTd[i] = {
+                                    'colspan': copyTd[i]['colspan'],
+                                    'rowspan': copyTd[i]['rowspan'],
+                                    'data': prevTr[countTd]['data'] + '@' + copyTd[i]['data']
+                                }
+                                counttd = counttd + 1
+                        else:
+                            copyTd[counttd] = {
+                                'colspan': copyTd[counttd]['colspan'],
+                                'rowspan': copyTd[counttd]['rowspan'],
+                                'data': prevTr[countTd]['data'] + '@' + copyTd[counttd]['data']
+                            }
+                            counttd = counttd + 1
+
+                    listTr.append(copyTd)
+                else:
+                    for it in tr.iter():
+                        if it.tag == "td":
+                            listTdData = []
+                            myArticle.getTextOfAGivenTag(it, listTdData)
+                            td = {
+                                'colspan': str(it.get('colspan')),
+                                'rowspan': str(it.get('rowspan')),
+                                'data': '#'.join(listTdData)
+                            }
+                            listTd.append(td)
+                    listTr.append(listTd)
+                countTr = countTr + 1
+
+            listThead.append(listTr)
+            myTable.setTableHead(listThead)
+        listOfTables.append(myTable)
 
 
+    print('#####################################################################################################################\n')
 
-    '''
-    for tag in myArticle.searchTagInArticle('caption', rootTag=None):
-        print(tag.tag)
-        #myArticle.getTextOfAGivenTag(tag)
+    for tab in listOfTables:
+        print(tab.caption)
+        print("\n\n")
+        print(tab.Thead)
+        print("#################################\n\n\n\n")
 
-     
-        if elt.tag == "caption" and len(elt.getchildren()) > 0:
-            listOfCaption = []
-            for subelt in elt.getchildren():
-                print(subelt.text)
-        elif elt.tag == "caption" and len(elt.getchildren()) == 0:
-            print(elt.text)
-        '''
+
 
     exit(0)
     print('#################### Search for table tag in article ###################')
@@ -140,6 +199,7 @@ def main():
                         }
                         listTd.append(td)
                 listTr.append(listTd)
+
             countTr = countTr + 1
         listThead.append(listTr)
 
