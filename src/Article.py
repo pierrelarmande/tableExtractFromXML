@@ -52,7 +52,7 @@ class Article:
             listOfContain.append(str(tagObject.text).strip())
         if len(tagObject.getchildren()) > 0:
             for subTag in tagObject.getchildren():
-                print(subTag.tag)
+                #print(subTag.tag)
                 self.getTextOfAGivenTag(subTag, listOfContain)
 
 

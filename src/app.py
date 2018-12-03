@@ -12,7 +12,7 @@ def main():
     file5 = '../data/PMC5137041.xml'
     file6 = '../data/PMC6115326.xml'
 
-    myArticle = Article(file5)
+    myArticle = Article(file2)
     print('\n\n########################### Get article title ##########################')
     print(myArticle.title)
     print('########################################################################\n\n')
@@ -47,6 +47,15 @@ def main():
                         if it.tag == "td":
                             listTdData = []
                             myArticle.getTextOfAGivenTag(it, listTdData)
+                            if len(str(it.get('colspan')).strip()) == 0 or str(it.get('colspan')) == 'None':
+                                cols = 1
+                            else:
+                                cols = int(str(it.get('colspan')))
+
+                            if len(str(it.get('rowspan')).strip()) == 0 or str(it.get('rowspan')) == 'None':
+                                rows = 1
+                            else:
+                                rows = int(str(it.get('rowspan')))
                             td = {
                                 'colspan': str(it.get('colspan')),
                                 'rowspan': str(it.get('rowspan')),
@@ -59,19 +68,23 @@ def main():
                     for countTd in range(len(prevTr)):
                         if prevTr[countTd]['colspan'] != 'None' and int(prevTr[countTd]['colspan']) >= 2:
                             for i in range(countTd, countTd + int(prevTr[countTd]['colspan'])):
-                                copyTd[i] = {
-                                    'colspan': copyTd[i]['colspan'],
-                                    'rowspan': copyTd[i]['rowspan'],
-                                    'data': prevTr[countTd]['data'] + '@' + copyTd[i]['data']
+
+                                if counttd < len(copyTd):
+
+                                    copyTd[i] = {
+                                        'colspan': copyTd[i]['colspan'],
+                                        'rowspan': copyTd[i]['rowspan'],
+                                        'data': prevTr[countTd]['data'] + '@' + copyTd[i]['data']
+                                    }
+                                    counttd = counttd + 1
+                        else:
+                            if counttd < len(copyTd):
+                                copyTd[counttd] = {
+                                    'colspan': copyTd[counttd]['colspan'],
+                                    'rowspan': copyTd[counttd]['rowspan'],
+                                    'data': prevTr[countTd]['data'] + '@' + copyTd[counttd]['data']
                                 }
                                 counttd = counttd + 1
-                        else:
-                            copyTd[counttd] = {
-                                'colspan': copyTd[counttd]['colspan'],
-                                'rowspan': copyTd[counttd]['rowspan'],
-                                'data': prevTr[countTd]['data'] + '@' + copyTd[counttd]['data']
-                            }
-                            counttd = counttd + 1
 
                     listTr.append(copyTd)
                 else:
@@ -79,9 +92,18 @@ def main():
                         if it.tag == "td":
                             listTdData = []
                             myArticle.getTextOfAGivenTag(it, listTdData)
+                            if len(str(it.get('colspan')).strip()) == 0 or str(it.get('colspan')) == 'None':
+                                cols = 1
+                            else:
+                                cols = int(str(it.get('colspan')))
+
+                            if len(str(it.get('rowspan')).strip()) == 0 or str(it.get('rowspan')) == 'None':
+                                rows = 1
+                            else:
+                                rows = int(str(it.get('rowspan')))
                             td = {
-                                'colspan': str(it.get('colspan')),
-                                'rowspan': str(it.get('rowspan')),
+                                'colspan': cols,
+                                'rowspan': rows,
                                 'data': '#'.join(listTdData)
                             }
                             listTd.append(td)
@@ -111,15 +133,20 @@ def main():
         print(tab.caption)
         print("\n\n")
         for tr in tab.tableHead:
-            print(tr)
+            for td in tr:
+                print(td)
         print("\n\n")
         for tr in tab.tableBody:
-            print(tr)
+            for td in tr:
+                print(td)
         print("#################################\n\n\n\n")
 
 
 
-    exit(0)
+
+    '''
+     exit(0)
+    
     print('#################### Search for table tag in article ###################')
     for tag in myArticle.searchTagInArticle('thead', rootTag=None):
         print(tag)
@@ -224,6 +251,7 @@ def main():
         print("\n tr of head : "+ str(len(thead)))
         print(thead)
 '''
+    '''
     print('\n\n#################### Search for table tbody tag in article ###################\n\n\n\n\n')
 
     listTbody = []
