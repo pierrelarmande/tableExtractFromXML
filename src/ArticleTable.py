@@ -13,7 +13,6 @@ class ArticleTable:
 
 
     def setTableHead(self,listThead):
-        print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
         print(listThead)
         self.tableHead = listThead
 

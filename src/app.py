@@ -14,13 +14,17 @@ def writeTableInFile(listTables, fileName, testFolder= "../test"):
         f = open(filePath, "w+")
         for tab in listTables:
             f.write(" ".join(tab.caption))
-            f.write("\n")
+            f.write("\n\n")
             for head in tab.tableHead:
-                f.write(str(head))
-            f.write("\n")
+                for tr in head:
+                    f.write("\n")
+                    f.write(str(tr))
+            f.write("\n\n")
             for body in tab.tableBody:
-                f.write(str(body))
-            f.write("================================================================================")
+                for tr in body:
+                    f.write("\n")
+                    f.write(str(tr))
+            f.write("\n================================================================================\n\n\n")
         f.close()
 
 
